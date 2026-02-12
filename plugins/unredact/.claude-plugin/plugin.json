@@ -1,6 +1,6 @@
 {
   "name": "unredact",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Restores per-tool-call visibility that Claude Code removed in v2.1.20",
   "author": { "name": "alex-vit" },
   "hooks": {

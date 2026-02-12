@@ -24,12 +24,9 @@ Claude Code used to show what it was doing — which files it read, what it sear
 | Read | `package.json — 31 lines` |
 | Grep | `"TODO" — 5 files` |
 | Glob | `**/*.ts — 12 files` |
-| Edit | `index.ts` |
 | Write | `config.json — 8 lines` |
 | Bash | `git status` (uses description, falls back to command) |
 | Task | `explore auth flow` |
-| WebFetch | `example.com` |
-| WebSearch | `"react hooks"` |
 | NotebookEdit | `analysis.ipynb` |
 
 

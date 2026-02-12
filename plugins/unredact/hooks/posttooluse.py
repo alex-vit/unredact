@@ -10,8 +10,6 @@ Uses systemMessage on stdout (exit 0) to display summaries to the user.
 import json
 import os
 import sys
-from urllib.parse import urlparse
-
 
 def is_enabled():
     """Check if unredact is enabled via env var and local config."""
@@ -71,11 +69,6 @@ def format_glob(tool_input, tool_response):
     return f"{pattern} \u2014 {n} files"
 
 
-def format_edit(tool_input, _tool_response):
-    filename = basename(tool_input.get("file_path", ""))
-    return filename
-
-
 def format_write(tool_input, _tool_response):
     filename = basename(tool_input.get("file_path", ""))
     content = tool_input.get("content", "")
@@ -98,20 +91,6 @@ def format_task(tool_input, _tool_response):
     return desc
 
 
-def format_webfetch(tool_input, _tool_response):
-    url = tool_input.get("url", "")
-    try:
-        domain = urlparse(url).netloc
-    except Exception:
-        domain = url
-    return domain
-
-
-def format_websearch(tool_input, _tool_response):
-    query = tool_input.get("query", "")
-    return f'"{query}"'
-
-
 def format_notebookedit(tool_input, _tool_response):
     filename = basename(tool_input.get("notebook_path", ""))
     return filename
@@ -121,12 +100,9 @@ FORMATTERS = {
     "Read": format_read,
     "Grep": format_grep,
     "Glob": format_glob,
-    "Edit": format_edit,
     "Write": format_write,
     "Bash": format_bash,
     "Task": format_task,
-    "WebFetch": format_webfetch,
-    "WebSearch": format_websearch,
     "NotebookEdit": format_notebookedit,
 }
 
