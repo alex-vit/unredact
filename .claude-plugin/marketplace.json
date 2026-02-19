@@ -6,6 +6,11 @@
       "name": "unredact",
       "source": "./plugins/unredact",
       "description": "Restores per-tool-call visibility that Claude Code removed in v2.1.20"
+    },
+    {
+      "name": "notes",
+      "source": "./plugins/notes",
+      "description": "Development notes — track decisions, TODOs, and progress per task"
     }
   ]
 }
