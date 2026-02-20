@@ -16,6 +16,11 @@
       "name": "always-allow",
       "source": "./plugins/always-allow",
       "description": "Promote session-approved permissions to global ~/.claude/settings.json"
+    },
+    {
+      "name": "todos",
+      "source": "./plugins/todos",
+      "description": "Personal task tracker — TODOs, reminders, and deadlines across all work"
     }
   ]
 }
