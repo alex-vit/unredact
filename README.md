@@ -1,51 +1,20 @@
-# unredact
+# alexv-claude
 
-A Claude Code plugin that restores the per-tool-call detail that was [removed in v2.1.20](https://symmetrybreak.ing/blog/claude-code-is-being-dumbed-down/).
+A collection of [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugins.
 
-Claude Code used to show what it was doing — which files it read, what it searched for, what commands it ran. Now it collapses everything into useless summaries like "Read 3 files". This plugin brings that visibility back, printing a one-line summary after each tool call:
-
-```
-⏺ Searched for 1 pattern, read 1 file (ctrl+o to expand)
-  ⎿  PostToolUse:Glob says: **/* — 46 files
-  ⎿  PostToolUse:Read says: README.md — 52 lines
-```
-
-## Install
+## Setup
 
 ```
 /plugin marketplace add https://github.com/alex-vit/alexv-claude
-/plugin install unredact@alexv-claude
 ```
 
-## Supported tools
+Then install any plugin below.
 
-| Tool | Example output |
-|------|---------------|
-| Read | `package.json — 31 lines` |
-| Grep | `"TODO" — 5 files` |
-| Glob | `**/*.ts — 12 files` |
-| Write | `config.json — 8 lines` |
-| Bash | `git status` (uses description, falls back to command) |
-| Task | `explore auth flow` |
-| NotebookEdit | `analysis.ipynb` |
+## Plugins
 
-
-Other tools (MCP, ToolSearch, etc.) are silently skipped to avoid noise.
-
-## Configuration
-
-### Disable globally
-
-```bash
-export UNREDACT_ENABLED=0
-```
-
-### Disable per-project
-
-Create `.claude/unredact.local.json`:
-
-```json
-{
-  "enabled": false
-}
-```
+| Plugin | Description | Install |
+|--------|-------------|---------|
+| [unredact](plugins/unredact/) | Restores per-tool-call visibility removed in v2.1.20 | `/plugin install unredact@alexv-claude` |
+| [always-allow](plugins/always-allow/) | Promote session permissions to global settings | `/plugin install always-allow@alexv-claude` |
+| [notes](plugins/notes/) | Per-project development notes and decision log | `/plugin install notes@alexv-claude` |
+| [squire](plugins/squire/) | Personal task tracker across all projects | `/plugin install squire@alexv-claude` |
