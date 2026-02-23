@@ -61,7 +61,9 @@ sections:
 - `updated` — bump to today's date whenever the file is modified.
 - `tags` — short lowercase keywords for the project/domain (e.g. `go`, `mediawiki`).
 - `status` — matches the H1 status: omit for new notes, then `research`, `active`, `done`, or `abandoned`.
-- `sections` — brief list of what's in the file, so readers can decide whether to read further without scrolling.
+- `sections` — topic index (not a table of contents). Each entry should name the key topics and findings in that section, not just mirror the heading. The goal is: someone scanning frontmatter can tell whether a specific topic (e.g. "save game locations") is covered here without opening the file.
+  - Bad: `Cargo table schemas & gotchas`
+  - Good: `Cargo gotchas — save/config locations not in Cargo (use Parse), Company: prefix, value vocabulary`
 
 When updating an existing file that lacks frontmatter, add it.
 
