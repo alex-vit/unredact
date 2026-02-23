@@ -19,3 +19,4 @@ Then install any plugin below.
 | [notes](plugins/notes/) | Per-project development notes and decision log | `/plugin install notes@alexv-claude` |
 | [squire](plugins/squire/) | Personal task tracker across all projects | `/plugin install squire@alexv-claude` |
 | [reflect](plugins/reflect/) | Captures lessons learned as behavioral rules | `/plugin install reflect@alexv-claude` |
+| [save-state](plugins/save-state/) | Session state checkpoint for resuming later | `/plugin install save-state@alexv-claude` |
