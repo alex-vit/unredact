@@ -42,6 +42,31 @@ Update the status as work progresses. When marking Done, follow the closing-out 
 
 ## Format
 
+### Frontmatter
+
+Every notes file starts with YAML frontmatter for discovery and efficient reading:
+
+```yaml
+---
+title: Feature Name
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+tags: [relevant, topic, tags]
+status: active
+sections:
+  - Summary of each major section
+---
+```
+
+- `updated` — bump to today's date whenever the file is modified.
+- `tags` — short lowercase keywords for the project/domain (e.g. `go`, `mediawiki`).
+- `status` — matches the H1 status: omit for new notes, then `research`, `active`, `done`, or `abandoned`.
+- `sections` — brief list of what's in the file, so readers can decide whether to read further without scrolling.
+
+When updating an existing file that lacks frontmatter, add it.
+
+### Content
+
 Keep it lightweight. Use headers, bullets, checklists as needed — not every note needs all sections. Typical content includes:
 - What we're working on and why
 - Goals / acceptance criteria
