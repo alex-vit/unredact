@@ -26,6 +26,11 @@
       "name": "reflect",
       "source": "./plugins/reflect",
       "description": "Periodic reflection — captures lessons learned as behavioral rules in ~/.claude/CLAUDE.md"
+    },
+    {
+      "name": "android",
+      "source": "./plugins/android",
+      "description": "Android SDK tooling gotchas — emulators, signing, sdkmanager, AVDs"
     }
   ]
 }

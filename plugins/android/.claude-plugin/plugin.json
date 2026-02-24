@@ -1,0 +1,6 @@
+{
+  "name": "android",
+  "version": "1.0.0",
+  "description": "Android SDK tooling gotchas — emulators, signing, sdkmanager, AVDs",
+  "author": { "name": "alex-vit" }
+}
