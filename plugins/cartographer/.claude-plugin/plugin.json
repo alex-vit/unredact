@@ -1,0 +1,6 @@
+{
+  "name": "cartographer",
+  "version": "1.0.0",
+  "description": "Codebase mapping — leaves breadcrumbs in CLAUDE.md files for instant orientation",
+  "author": { "name": "alex-vit" }
+}
