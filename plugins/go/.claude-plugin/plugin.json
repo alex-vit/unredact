@@ -1,0 +1,6 @@
+{
+  "name": "go",
+  "version": "1.0.0",
+  "description": "Go conventions, build patterns, and platform-specific gotchas",
+  "author": { "name": "alex-vit" }
+}
