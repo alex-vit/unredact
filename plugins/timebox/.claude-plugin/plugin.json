@@ -1,0 +1,30 @@
+{
+  "name": "timebox",
+  "version": "1.0.0",
+  "description": "Constrain open-ended work to a fixed duration with milestone reminders",
+  "author": { "name": "alex-vit" },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/posttooluse.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ${CLAUDE_PLUGIN_ROOT}/hooks/posttooluse.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

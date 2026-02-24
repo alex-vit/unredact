@@ -36,6 +36,11 @@
       "name": "playwright-headless",
       "source": "./plugins/playwright-headless",
       "description": "Headless Playwright MCP — browser automation with guidance for when to use it over WebFetch"
+    },
+    {
+      "name": "timebox",
+      "source": "./plugins/timebox",
+      "description": "Constrain open-ended work to a fixed duration with milestone reminders"
     }
   ]
 }
