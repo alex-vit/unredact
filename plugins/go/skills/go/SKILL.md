@@ -12,6 +12,7 @@ go build ./...                          # build all packages
 go test ./...                           # test all packages
 go test -run TestName ./path/to/pkg     # single test
 go vet ./...                            # static analysis
+goimports -w .                          # format code + add missing / remove unused imports
 go generate -tags generate              # code generation (gated by build tag)
 ```
 
@@ -35,6 +36,10 @@ These combine: `-ldflags "-X main.version=1.2.0 -H=windowsgui"`.
 Use `const debug = true/false` controlled by build tags for dead-code elimination — the compiler strips unreachable branches. Use `const`, not `var`.
 
 Build with tags: `go build -tags debug ./...`
+
+## Formatting & Imports
+
+Prefer `goimports -w .` over `gofmt` — it does everything `gofmt` does (formatting) plus automatically adds missing imports and removes unused ones.
 
 ## Error Handling
 

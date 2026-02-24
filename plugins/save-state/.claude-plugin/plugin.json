@@ -1,6 +1,0 @@
-{
-  "name": "save-state",
-  "version": "1.0.0",
-  "description": "Session state checkpoint — snapshot where you are so a future session can pick up",
-  "author": { "name": "alex-vit" }
-}
