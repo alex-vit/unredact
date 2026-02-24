@@ -31,6 +31,11 @@
       "name": "android",
       "source": "./plugins/android",
       "description": "Android SDK tooling gotchas — emulators, signing, sdkmanager, AVDs"
+    },
+    {
+      "name": "playwright-headless",
+      "source": "./plugins/playwright-headless",
+      "description": "Headless Playwright MCP — browser automation without visible windows"
     }
   ]
 }

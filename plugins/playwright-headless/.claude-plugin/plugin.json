@@ -1,0 +1,6 @@
+{
+  "name": "playwright-headless",
+  "version": "1.0.0",
+  "description": "Headless Playwright MCP — browser automation without visible windows",
+  "author": { "name": "alex-vit" }
+}
