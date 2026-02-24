@@ -35,7 +35,7 @@
     {
       "name": "playwright-headless",
       "source": "./plugins/playwright-headless",
-      "description": "Headless Playwright MCP — browser automation without visible windows"
+      "description": "Headless Playwright MCP — browser automation with guidance for when to use it over WebFetch"
     }
   ]
 }
