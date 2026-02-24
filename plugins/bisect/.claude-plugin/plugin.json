@@ -1,0 +1,6 @@
+{
+  "name": "bisect",
+  "version": "1.0.0",
+  "description": "Interactive git bisect workflow — automated or manual mode",
+  "author": { "name": "alex-vit" }
+}

@@ -41,6 +41,11 @@
       "name": "timebox",
       "source": "./plugins/timebox",
       "description": "Constrain open-ended work to a fixed duration with milestone reminders"
+    },
+    {
+      "name": "bisect",
+      "source": "./plugins/bisect",
+      "description": "Interactive git bisect workflow — automated or manual mode"
     }
   ]
 }
