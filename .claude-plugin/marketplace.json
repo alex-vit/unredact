@@ -33,9 +33,14 @@
       "description": "Android SDK tooling gotchas — emulators, signing, sdkmanager, AVDs"
     },
     {
+      "name": "playwright",
+      "source": "./plugins/playwright",
+      "description": "Headed Playwright MCP — the default browser automation with a visible window for collaborative browsing"
+    },
+    {
       "name": "playwright-headless",
       "source": "./plugins/playwright-headless",
-      "description": "Headless Playwright MCP — browser automation with guidance for when to use it over WebFetch"
+      "description": "Headless Playwright MCP — fallback for failed WebFetch calls and background browser tasks"
     },
     {
       "name": "timebox",
@@ -46,6 +51,11 @@
       "name": "bisect",
       "source": "./plugins/bisect",
       "description": "Interactive git bisect workflow — automated or manual mode"
+    },
+    {
+      "name": "wave",
+      "source": "./plugins/wave",
+      "description": "Wave-specific workflows — BambooHR and other internal tools via headed Playwright"
     }
   ]
 }

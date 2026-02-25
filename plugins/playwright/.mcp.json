@@ -1,0 +1,5 @@
+{
+  "playwright": {
+    "command": "playwright-mcp"
+  }
+}

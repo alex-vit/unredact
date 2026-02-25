@@ -1,10 +1,10 @@
 # playwright-headless
 
-Headless Playwright MCP server with behavioral guidance for when to use browser automation instead of `WebFetch`.
+Headless Playwright MCP server — background browser automation without a visible window.
 
-Provides the `playwright-mcp --headless` MCP server plus a reference skill that teaches Claude Code when to reach for Playwright tools — simple 403 bot walls, JS-rendered SPAs, cookie consent gates, CSS/font inspection, screenshots, and more.
+Use as a **fallback** for failed `WebFetch` calls (JS-rendered SPAs, 403 bot walls, cookie consent gates) or for background data extraction. For interactive browsing with user login/interaction, use the headed `playwright` plugin instead.
 
-**Limitation**: Does not bypass Cloudflare challenges or advanced bot detection (no stealth patches). Sites like Medium will block headless Chromium the same as `WebFetch`.
+**Limitation**: Does not bypass Cloudflare challenges or advanced bot detection (no stealth patches).
 
 ## Install
 

@@ -1,29 +1,27 @@
 ---
 name: playwright-headless
-description: Headless browser automation — use instead of WebFetch for JS-rendered pages, SPAs, screenshots, CSS/font inspection, simple 403s, cookie consent walls, GDPR gates, lazy-loaded content, form interaction, network inspection, and any page that returns empty or garbled content from WebFetch. Does not bypass Cloudflare or advanced bot detection.
+description: Headless browser automation — use as a fallback for failed WebFetch calls or background tasks that don't need a visible window. Not the default; prefer the headed `playwright` plugin for interactive use.
 ---
 
 # Headless Playwright Browser
 
-## When to use instead of WebFetch
+Headless Playwright — no visible window. Use this as a **fallback**, not the default.
 
-Reach for Playwright when:
+## When to use
 
-- **403 / bot detection** — sites that return 403 to `WebFetch` due to missing browser headers. Note: sites behind **Cloudflare challenges** (e.g. Medium) will block headless Playwright too — no stealth patches are installed.
-- **JS-rendered SPAs** — WebFetch gets empty `<div id="root"></div>` shells.
-- **Cookie consent / GDPR / age gates** — requires clicking "Accept" before content is visible.
-- **Dynamic or lazy-loaded content** — infinite scroll, "Load more" buttons, content behind tabs.
-- **Screenshots** — visual proof, UI verification, sharing what a page looks like.
-- **CSS / font / layout inspection** — computed styles, font families, colors, spacing via `evaluate`.
-- **Form interaction / multi-step flows** — login, search, pagination, wizard forms.
-- **WebFetch returns empty or garbled content** — retry the same URL with Playwright.
-- **Network traffic / console error inspection** — debug what a page loads or logs.
+Use headless Playwright when:
 
-If WebFetch works fine, keep using it. Playwright is heavier — use it when you need it.
+- **WebFetch fails** and a real browser would help — JS-rendered SPAs, 403 bot walls, cookie consent gates, lazy-loaded content, GDPR walls.
+- **Background data extraction** — scraping, screenshots, network inspection where no user interaction is needed.
+- **No user input required** — if the user doesn't need to see or interact with the page, headless is lighter.
+
+**Do NOT use for:**
+- Anything requiring user login, MFA, or manual interaction — use the headed `playwright` plugin instead.
+- When the user asks to "open" a site — they want a visible window.
 
 ## Tool discovery
 
-Find tools with `ToolSearch` query `"playwright"`. All tools are prefixed `mcp__plugin_playwright-headless_playwright__browser_*`.
+Find tools with `ToolSearch` query `"playwright-headless"`. All tools are prefixed `mcp__plugin_playwright-headless_playwright__browser_*`.
 
 ## Core workflow
 
