@@ -72,6 +72,10 @@ This gives `%AppData%` on Windows, `~/.config` on Linux, `~/Library/Application 
 - **Opening files/URLs from GUI apps**: Use `rundll32 url.dll,FileProtocolHandler <path>`. Do NOT use `cmd /c start` — it silently fails with `-H=windowsgui`.
 - **No CGO preferred**: Prefer pure-Go libraries to avoid CGO cross-compilation complexity on Windows.
 
+## .gitignore
+
+Use GitHub's standard Go `.gitignore` as a baseline — it covers binaries (`*.exe`, `*.dll`, `*.so`, `*.dylib`), test artifacts (`*.test`, `*.out`, `coverage.*`), and workspace files (`go.work`). Fetch it from `github/gitignore/Go.gitignore` or use `gh repo create --gitignore Go`. Add project-specific entries (`.env`, IDE dirs, `.DS_Store`) as needed.
+
 ## Dependencies
 
 Prefer reimplementing thin wrappers over importing large dependencies when only a small fraction of the API surface is used. Evaluate the ratio of used-to-exported symbols before deciding.
