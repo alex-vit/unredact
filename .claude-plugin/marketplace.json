@@ -8,24 +8,9 @@
       "description": "Restores per-tool-call visibility that Claude Code removed in v2.1.20"
     },
     {
-      "name": "notes",
-      "source": "./plugins/notes",
-      "description": "Development notes — track decisions, TODOs, and progress per task"
-    },
-    {
       "name": "always-allow",
       "source": "./plugins/always-allow",
       "description": "Promote session-approved permissions to global ~/.claude/settings.json"
-    },
-    {
-      "name": "squire",
-      "source": "./plugins/squire",
-      "description": "Personal squire — tracks tasks, reminders, and deadlines across all your work"
-    },
-    {
-      "name": "reflect",
-      "source": "./plugins/reflect",
-      "description": "Periodic reflection — captures lessons learned as behavioral rules in ~/.claude/CLAUDE.md"
     },
     {
       "name": "android",
@@ -56,6 +41,11 @@
       "name": "wave",
       "source": "./plugins/wave",
       "description": "Wave-specific workflows — BambooHR and other internal tools via headed Playwright"
+    },
+    {
+      "name": "go-dev",
+      "source": "./plugins/go-dev",
+      "description": "Go (Golang) patterns and knowledge for Windows-first development"
     }
   ]
 }
