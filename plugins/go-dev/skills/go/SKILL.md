@@ -33,6 +33,34 @@ disable-model-invocation: true
 - Inject version: `-ldflags "-X main.version=1.0.0"`
 - Combined: `go build -ldflags "-X main.version=1.0.0 -H=windowsgui" -o app.exe ./cmd/app/`
 
+## Cobra + Windows GUI Apps
+
+**Cobra's mousetrap kills GUI apps launched from Explorer.** Cobra includes `inconshreveable/mousetrap` which detects if the parent process is `explorer.exe` (double-click) and exits after showing "This is a command line tool." For CLI tools this is helpful; for GUI apps using cobra it silently kills the app (no console to show the message). Disable it in `init()`:
+
+```go
+func init() {
+    cobra.MousetrapHelpText = "" // Allow launching from Explorer (GUI app).
+}
+```
+
+This also affects the registry Run key autostart (explorer.exe processes those entries).
+
+## Windows Paths
+
+- **User config** (`os.UserConfigDir()`): returns `%APPDATA%` — roaming profile, syncs across machines in domain environments. Use for user settings/preferences.
+- **Machine-local data** (caches, logs, data with local paths): use `%LocalAppData%` via `os.Getenv("LocalAppData")`. Does not roam.
+- Pattern from plop:
+
+```go
+func localDataDir(appName string) (string, error) {
+    dir := os.Getenv("LocalAppData")
+    if dir == "" {
+        return "", errors.New("cache dir: %LocalAppData% is not set")
+    }
+    return filepath.Join(dir, appName), nil
+}
+```
+
 ## Running on Windows
 
 - Kill a running process: `powershell -Command "Stop-Process -Name app -Force -ErrorAction SilentlyContinue"`
