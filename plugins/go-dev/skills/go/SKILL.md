@@ -29,6 +29,7 @@ disable-model-invocation: true
 ## Building
 
 - Standard checks: `go test ./...` and `go vet ./...`
+- When working on concurrency (goroutines, channels, shared state), always run `go test -race ./...` to catch data races
 - Windows GUI app (no console window): `-ldflags "-H=windowsgui"`
 - Inject version: `-ldflags "-X main.version=1.0.0"`
 - Combined: `go build -ldflags "-X main.version=1.0.0 -H=windowsgui" -o app.exe ./cmd/app/`
