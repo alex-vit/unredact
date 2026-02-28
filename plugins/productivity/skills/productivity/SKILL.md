@@ -1,6 +1,6 @@
 ---
 name: productivity
-description: Development notes, personal tasks, reminders, and recurring routines
+description: Keep dev notes, track decisions, manage TODOs, personal tasks, reminders, and recurring routines. Use this for anything involving notes, note-keeping, or project tracking.
 user-invocable: true
 ---
 
@@ -189,7 +189,8 @@ This skill should be used **proactively** — not only on explicit invocation. U
 ### Dev notes triggers
 
 - Starting work on a new feature or ideas-list item — create the notes file up front
-- The user says "note that", "make a note", "keep track of", "add a todo", or similar
+- **Project lacks a `notes/` directory** — when starting work in a project that has no `notes/` folder, proactively create it with `00-ideas.md` (scaffold from a sibling project if one exists). Don't ask first — every project gets notes.
+- The user says "keep notes", "note that", "make a note", "set up notes", "keep track of", "add a todo", "notes folder", or similar — these are requests to use **this skill**, not timebox or other skills
 - A significant decision is made or an approach is chosen
 - Requirements are clarified or refined
 - A deliverable is completed or scope changes
