@@ -1,6 +1,6 @@
 {
   "name": "go",
-  "version": "1.0.0",
-  "description": "Go conventions, build patterns, and platform-specific gotchas",
+  "version": "1.1.0",
+  "description": "Go conventions, build patterns, and Windows-first gotchas",
   "author": { "name": "alex-vit" }
 }

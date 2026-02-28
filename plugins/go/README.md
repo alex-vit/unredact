@@ -1,6 +1,6 @@
 # go
 
-Go conventions, build patterns, ldflags reference, and platform-specific gotchas shared across Go projects.
+Go conventions, build patterns, and Windows-first gotchas. Covers code style, error handling, goroutines, build tooling, Windows GUI/tray app packaging, Inno Setup, and code generation patterns.
 
 Automatically referenced when working in Go repositories.
 
