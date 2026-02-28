@@ -28,6 +28,7 @@ htmlcov/
 # MCP server output
 .playwright-mcp/
 
-# Local configuration (should not be committed)
+# Claude Code
 .claude/*.local.md
 .claude/*.local.json
+.claude/worktrees/
