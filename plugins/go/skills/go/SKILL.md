@@ -41,6 +41,21 @@ Build with tags: `go build -tags debug ./...`
 
 Prefer `goimports -w .` over `gofmt` — it does everything `gofmt` does (formatting) plus automatically adds missing imports and removes unused ones.
 
+## Modernization
+
+Run `go fix ./...` as a final touch before pushing — it applies automatic modernizations for the Go version declared in `go.mod`. It's a bit slow (compiles the full module graph) so don't run it on every save, but do run it after a feature or before a commit batch.
+
+Patterns `go fix` applies automatically, and that you should also use proactively when writing new code:
+
+- `for i := range n` over `for i := 0; i < n; i++` (Go 1.22+)
+- `strings.SplitSeq(s, sep)` over `strings.Split(s, sep)` in `range` loops — returns an iterator, avoids allocating the intermediate slice (Go 1.24+)
+- `strings.FieldsSeq` / `strings.FieldsFuncSeq` over `strings.Fields` / `strings.FieldsFunc` when iterating (Go 1.24+)
+- `maps.Copy(dst, src)` over manual `for k, v := range src { dst[k] = v }` loops (Go 1.21+)
+- `slices.Contains(s, v)` over manual linear search loops (Go 1.21+)
+- `strings.Cut(s, sep)` over `strings.Index` + manual slice arithmetic (Go 1.18+)
+- `any` over `interface{}` (Go 1.18+)
+- Remove `omitempty` from `time.Time` struct fields — it was a no-op with the old `encoding/json` behaviour and has surprising semantics in Go 1.26+. Use `omitzero` if you explicitly want zero-value omission.
+
 ## Error Handling
 
 - Return errors, don't panic. Reserve `panic` for truly unrecoverable programmer errors.
