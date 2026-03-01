@@ -59,6 +59,72 @@ ldflags:
 
 These combine: `-ldflags "-X main.version=1.2.0 -H=windowsgui"`.
 
+## Testing
+
+### When to write tests proactively
+
+Write tests without being asked whenever you:
+- **Fix a bug** — write a failing test first that reproduces the bug, then fix the code. The test proves the bug existed and prevents regression. Never skip this step.
+- **Extract a pure function** — if you pull logic out of a Win32/syscall/UI function into a testable pure function, write tests for it in the same PR. The extraction isn't complete until it's tested.
+- **Write math, interpolation, conversion, or rounding logic** — these are prime candidates for table-driven tests. If it does arithmetic, it gets a test.
+- **Add a function with non-obvious edge cases** — boundary values, clamping, off-by-one risks, empty inputs.
+
+### Table-driven tests
+
+Use table-driven tests as the default style. They serve as both tests and documentation — a reader can scan the table to understand the function's behavior across inputs:
+
+```go
+func TestRoundTo100(t *testing.T) {
+    tests := []struct {
+        input, want int
+    }{
+        {3450, 3500},
+        {3549, 3500},
+        {3550, 3600},
+        {6500, 6500},
+    }
+    for _, tt := range tests {
+        got := roundTo100(tt.input)
+        if got != tt.want {
+            t.Errorf("roundTo100(%d) = %d, want %d", tt.input, got, tt.want)
+        }
+    }
+}
+```
+
+For functions with named scenarios, add a `name` field and use `t.Run`:
+
+```go
+tests := []struct {
+    name string
+    // ...
+}{
+    {"deep night", ...},
+    {"morning transition midpoint", ...},
+}
+for _, tt := range tests {
+    t.Run(tt.name, func(t *testing.T) { ... })
+}
+```
+
+### Range/property tests for math functions
+
+For continuous math functions (easing curves, color conversions, interpolations), test properties alongside specific values:
+- **Monotonicity** — output increases (or decreases) as input increases
+- **Boundary values** — `t=0` and `t=1` return exact start/end values
+- **Clamping** — output stays within valid range for any input
+- **Symmetry** — `f(0.5)` is the midpoint if the function is symmetric
+
+### Extracting testable logic
+
+When pure logic is buried inside a Win32/syscall/UI function, extract it so it can be tested. The pattern: move the computation into a pure function, have the original function call it, then test the pure function. The original function becomes a thin wrapper that fetches state, calls the pure function, and applies the result via syscalls.
+
+### Test file conventions
+
+- Test files go next to the source: `gamma.go` → `gamma_test.go`
+- Match build tags: if `slider.go` has `//go:build windows`, so does `slider_test.go`
+- Use `math.Abs(got - want) < epsilon` for float comparisons, or range checks `[min, max]` for approximate results
+
 ## Build Tags
 
 ```go
