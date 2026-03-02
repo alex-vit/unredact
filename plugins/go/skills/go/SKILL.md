@@ -224,8 +224,7 @@ The script pattern (see monibright or bot for a full copy):
 ```ini
 [Setup]
 AppId={{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}  ; generate once, never change
-AppMutex=MyAppMutex          ; prevents simultaneous installs
-CloseApplications=yes        ; prompt user to close app before overwriting files
+CloseApplications=yes        ; Restart Manager: close-apps page during install
 PrivilegesRequired=lowest    ; install to {localappdata}, no UAC prompt
 DefaultDirName={localappdata}\MyApp
 OutputDir=out                ; matches build script output dir
@@ -239,7 +238,8 @@ Type: filesandordirs; Name: "{app}"   ; clean uninstall — no leftover folder
 ```
 
 Key decisions:
-- `CloseApplications=yes` — Inno prompts user to close the running instance (no force-kill needed)
+- **NO `AppMutex`** — never use `AppMutex`. It blocks the installer at launch with a hard "please close the app first" error before setup even starts. The correct pattern is `CloseApplications=yes` alone, which uses Windows Restart Manager to show a proper "these applications need to be closed" page mid-install with yes/no options — the standard installer UX users expect.
+- `CloseApplications=yes` — Restart Manager detects the locked exe and shows a close-apps page during installation
 - `UninstallDelete filesandordirs {app}` — removes the entire install folder on uninstall
 - `AppId` GUID — Windows uses this to recognise upgrades vs fresh installs; generate once with `[guid]::NewGuid()` in PowerShell and never change it
 - `PrivilegesRequired=lowest` + `{localappdata}` — avoids UAC, matches the app's own data directory
