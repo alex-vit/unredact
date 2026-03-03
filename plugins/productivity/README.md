@@ -1,10 +1,25 @@
 # productivity
 
-Keep dev notes and manage personal tasks in one skill. Sets up and maintains `notes/` directories per project, tracks decisions/TODOs/progress per feature, and manages cross-project tasks, reminders, and recurring routines in a personal docket.
+Dev notes, personal tasks, workplace memory, and recurring routines in one plugin.
 
-Works in the background — picks up on decisions, deadlines, and action items from conversation. Proactively creates `notes/` in projects that lack one. Reads your docket at session start, executes recurring routines, and keeps things tidy.
+## Skills
 
-Configurable via `~/.claude/squire.json` for docket location and recurring routines. Additional commands: `/productivity status`, `/productivity retry <routine>`, `/productivity clean`.
+| Skill | Description |
+|-------|-------------|
+| `productivity` | Dev notes (`notes/` per project) + personal docket (configurable task file) + recurring routines |
+| `workplace-memory` | Two-tier memory system — hot cache in `~/.claude/CLAUDE.md`, deep storage in `~/.claude/memory/workplace/`. Decodes people, acronyms, projects, and internal language. |
+
+## Commands
+
+| Command | What it does |
+|---------|--------------|
+| `/productivity:start` | Initialize workplace memory, bootstrap from task list and connected tools |
+| `/productivity:update` | Sync tasks from Linear/GitHub, triage stale items, fill memory gaps |
+| `/productivity:update --comprehensive` | Deep scan Slack, email, calendar — flag missed todos, suggest new memories |
+
+## MCP Servers
+
+Adds Google Calendar and Gmail for the `/update --comprehensive` scan.
 
 ## Install
 

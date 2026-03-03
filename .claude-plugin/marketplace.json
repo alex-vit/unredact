@@ -46,6 +46,11 @@
       "name": "go-dev",
       "source": "./plugins/go-dev",
       "description": "Go (Golang) patterns and knowledge for Windows-first development"
+    },
+    {
+      "name": "productivity",
+      "source": "./plugins/productivity",
+      "description": "Dev notes, personal tasks, workplace memory, and recurring routines with external source scanning"
     }
   ]
 }
