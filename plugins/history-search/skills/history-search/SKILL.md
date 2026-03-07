@@ -77,6 +77,40 @@ Plain text, one result per block:
 - Results are pipe-friendly -- no colors, no ANSI codes
 - Re-index periodically to pick up new sessions: `~/.claude/scripts/history-reindex.sh`
 
+## Setup
+
+### Prerequisites
+
+```shell
+# Install llm CLI via pipx
+pipx install llm
+
+# Install the sentence-transformers plugin
+~/.local/bin/llm install llm-sentence-transformers
+
+# Download the embedding model (~80MB, runs locally, no API key needed)
+~/.local/bin/llm embed -m sentence-transformers/all-MiniLM-L6-v2 -c "test"
+```
+
+### Initial indexing
+
+```shell
+# Index all session JSONL files (~774 sessions, takes a few minutes first time)
+~/.claude/scripts/history-reindex.sh
+```
+
+### Automatic indexing
+
+A `SessionStart` hook in `~/.claude/settings.json` runs the reindex script at the start of each Claude Code session. This keeps the index up to date incrementally (uses content_hash to skip unchanged files, typically completes in seconds).
+
+### Files
+
+| File | Purpose |
+|------|---------|
+| `~/.claude/scripts/history-search.py` | Search wrapper — parses `llm similar` output, extracts excerpts |
+| `~/.claude/scripts/history-reindex.sh` | Reindex script — runs `llm embed-multi` incrementally |
+| `~/AppData/Roaming/io.datasette.llm/embeddings.db` | Embeddings database (collection: `sessions`) |
+
 ## Limitations
 
 - **Session-level granularity**: Embeddings represent entire sessions. If a topic was a small part of a long session, it may not surface. For niche subtopics, fall back to `grep -rl "keyword" ~/.claude/projects/ --include="*.jsonl"` to find exact matches.
