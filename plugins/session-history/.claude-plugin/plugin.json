@@ -1,6 +1,0 @@
-{
-  "name": "session-history",
-  "version": "1.0.0",
-  "description": "Search past Claude Code conversation history for keywords, context, and prior solutions",
-  "author": { "name": "alex-vit" }
-}

@@ -48,11 +48,6 @@
       "description": "Go (Golang) patterns and knowledge for Windows-first development"
     },
     {
-      "name": "productivity",
-      "source": "./plugins/productivity",
-      "description": "Dev notes, personal tasks, workplace memory, and recurring routines with external source scanning"
-    },
-    {
       "name": "skill-anchoring",
       "source": "./plugins/skill-anchoring",
       "description": "Audit installed skills against CLAUDE.md for proper anchoring directives"

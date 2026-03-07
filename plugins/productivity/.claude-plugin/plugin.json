@@ -1,6 +1,6 @@
 {
   "name": "productivity",
-  "version": "2.0.0",
-  "description": "Dev notes, personal tasks, workplace memory, and recurring routines. Decodes workplace shorthand, tracks people and projects, scans external sources for missed action items.",
+  "version": "1.0.0",
+  "description": "Dev notes, personal tasks, reminders, and recurring routines",
   "author": { "name": "alex-vit" }
 }
