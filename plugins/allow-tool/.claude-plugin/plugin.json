@@ -1,0 +1,6 @@
+{
+  "name": "allow-tool",
+  "version": "1.1.0",
+  "description": "Promote session-approved permissions to global ~/.claude/settings.json",
+  "author": { "name": "alex-vit" }
+}

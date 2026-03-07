@@ -3,14 +3,14 @@
   "owner": { "name": "alex-vit" },
   "plugins": [
     {
+      "name": "allow-tool",
+      "source": "./plugins/allow-tool",
+      "description": "Promote session-approved permissions to global ~/.claude/settings.json"
+    },
+    {
       "name": "android",
       "source": "./plugins/android",
       "description": "Android SDK tooling gotchas — emulators, signing, sdkmanager, AVDs"
-    },
-    {
-      "name": "bisect",
-      "source": "./plugins/bisect",
-      "description": "Interactive git bisect workflow — automated or manual mode"
     },
     {
       "name": "wave",
