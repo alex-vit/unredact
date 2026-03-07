@@ -13,9 +13,9 @@
       "description": "Android SDK tooling gotchas — emulators, signing, sdkmanager, AVDs"
     },
     {
-      "name": "wave",
-      "source": "./plugins/wave",
-      "description": "Wave-specific workflows — BambooHR and other internal tools via headed Playwright"
+      "name": "go",
+      "source": "./plugins/go",
+      "description": "Go patterns, conventions, and Windows-first development knowledge"
     },
     {
       "name": "go-dev",
