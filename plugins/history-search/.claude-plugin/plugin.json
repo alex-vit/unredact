@@ -1,0 +1,6 @@
+{
+  "name": "history-search",
+  "version": "2.0.0",
+  "description": "Semantic search over past Claude Code conversation history using llm embeddings",
+  "author": { "name": "alex-vit" }
+}

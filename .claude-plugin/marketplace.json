@@ -53,9 +53,14 @@
       "description": "Dev notes, personal tasks, workplace memory, and recurring routines with external source scanning"
     },
     {
-      "name": "session-history",
-      "source": "./plugins/session-history",
-      "description": "Search past Claude Code conversation history for keywords, context, and prior solutions"
+      "name": "skill-anchoring",
+      "source": "./plugins/skill-anchoring",
+      "description": "Audit installed skills against CLAUDE.md for proper anchoring directives"
+    },
+    {
+      "name": "history-search",
+      "source": "./plugins/history-search",
+      "description": "Semantic search over past Claude Code session history using llm embeddings"
     }
   ]
 }
