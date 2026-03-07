@@ -1,6 +1,0 @@
-{
-  "name": "playwright",
-  "version": "1.0.0",
-  "description": "Headed Playwright MCP — browser automation with a visible window for collaborative browsing",
-  "author": { "name": "alex-vit" }
-}

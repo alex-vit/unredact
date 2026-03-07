@@ -3,34 +3,9 @@
   "owner": { "name": "alex-vit" },
   "plugins": [
     {
-      "name": "unredact",
-      "source": "./plugins/unredact",
-      "description": "Restores per-tool-call visibility that Claude Code removed in v2.1.20"
-    },
-    {
-      "name": "always-allow",
-      "source": "./plugins/always-allow",
-      "description": "Promote session-approved permissions to global ~/.claude/settings.json"
-    },
-    {
       "name": "android",
       "source": "./plugins/android",
       "description": "Android SDK tooling gotchas — emulators, signing, sdkmanager, AVDs"
-    },
-    {
-      "name": "playwright",
-      "source": "./plugins/playwright",
-      "description": "Headed Playwright MCP — the default browser automation with a visible window for collaborative browsing"
-    },
-    {
-      "name": "playwright-headless",
-      "source": "./plugins/playwright-headless",
-      "description": "Headless Playwright MCP — fallback for failed WebFetch calls and background browser tasks"
-    },
-    {
-      "name": "timebox",
-      "source": "./plugins/timebox",
-      "description": "Constrain open-ended work to a fixed duration with milestone reminders"
     },
     {
       "name": "bisect",
