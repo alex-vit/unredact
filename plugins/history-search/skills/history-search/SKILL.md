@@ -40,13 +40,13 @@ Run 2-3 queries with different phrasings to maximize coverage. Broader conceptua
 
 ```shell
 # Basic search (top 10 results)
-python3 ~/.claude/scripts/history-search.py "signing key rotation"
+python3 $CLAUDE_PLUGIN_ROOT/scripts/history-search.py "signing key rotation"
 
 # Filter by project
-python3 ~/.claude/scripts/history-search.py "deploy error" --project wave
+python3 $CLAUDE_PLUGIN_ROOT/scripts/history-search.py "deploy error" --project wave
 
 # More results
-python3 ~/.claude/scripts/history-search.py "webpack config" -n 20
+python3 $CLAUDE_PLUGIN_ROOT/scripts/history-search.py "webpack config" -n 20
 ```
 
 ## Output format
@@ -67,7 +67,7 @@ Plain text, one result per block:
 - Session JSONL files are embedded at the session level using `sentence-transformers/all-MiniLM-L6-v2`
 - `llm similar` finds the closest embeddings by cosine similarity
 - The wrapper script reads source JSONL files to extract dates and excerpts (embeddings DB stores no content)
-- Re-index with `~/.claude/scripts/history-reindex.sh` (incremental -- skips unchanged files)
+- Re-index with `$CLAUDE_PLUGIN_ROOT/scripts/history-reindex.sh` (incremental -- skips unchanged files)
 
 ## Tips
 
@@ -75,7 +75,7 @@ Plain text, one result per block:
 - Use `--project` to narrow results when you know which project the conversation was about
 - Scores above 0.4 are usually strong matches; below 0.3 are loose associations
 - Results are pipe-friendly -- no colors, no ANSI codes
-- Re-index periodically to pick up new sessions: `~/.claude/scripts/history-reindex.sh`
+- Re-index periodically to pick up new sessions: `$CLAUDE_PLUGIN_ROOT/scripts/history-reindex.sh`
 
 ## Setup
 
@@ -96,7 +96,7 @@ pipx install llm
 
 ```shell
 # Index all session JSONL files (~774 sessions, takes a few minutes first time)
-~/.claude/scripts/history-reindex.sh
+$CLAUDE_PLUGIN_ROOT/scripts/history-reindex.sh
 ```
 
 ### Automatic indexing
@@ -107,8 +107,8 @@ A `SessionStart` hook in `~/.claude/settings.json` runs the reindex script at th
 
 | File | Purpose |
 |------|---------|
-| `~/.claude/scripts/history-search.py` | Search wrapper — parses `llm similar` output, extracts excerpts |
-| `~/.claude/scripts/history-reindex.sh` | Reindex script — runs `llm embed-multi` incrementally |
+| `$CLAUDE_PLUGIN_ROOT/scripts/history-search.py` | Search wrapper — parses `llm similar` output, extracts excerpts |
+| `$CLAUDE_PLUGIN_ROOT/scripts/history-reindex.sh` | Reindex script — runs `llm embed-multi` incrementally |
 | `~/AppData/Roaming/io.datasette.llm/embeddings.db` | Embeddings database (collection: `sessions`) |
 
 ## Limitations
